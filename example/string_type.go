@@ -16,5 +16,5 @@ func main() {
 	fmt.Printf("string.size=%d, len(string)=%d\n", unsafe.Sizeof(str), len(str))
 
 	ms := *(*MyString)(unsafe.Pointer(&str))
-	fmt.Printf("%s: %d\n", string(*(*[]byte)(ms.Data)), ms.Len)
+	fmt.Printf("%s: %d\n", string((*(*[24]byte)(ms.Data))[:]), ms.Len)
 }
